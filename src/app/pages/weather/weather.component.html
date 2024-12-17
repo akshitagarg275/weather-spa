@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <form class="mb-4" (ngSubmit)="fetchWeather()">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="city"
+          placeholder="Enter city"
+          name="city"
+          required
+        />
+        <button class="btn btn-primary" type="submit">Get Weather</button>
+      </div>
+    </form>
+  
+    <div *ngIf="loading" class="text-center">
+      <div class="spinner-border text-primary"></div>
+    </div>
+  
+    <div *ngIf="weather" @fadeIn>
+      <h3>{{ weather.name }}</h3>
+      <p>Temperature: {{ weather.main.temp }}°C</p>
+      <p>Humidity: {{ weather.main.humidity }}%</p>
+      <p>Wind Speed: {{ weather.wind.speed }} km/h</p>
+    </div>
+
+    <button class="btn btn-link" routerLink="/forecast" >
+        View 14-Day Forecast
+      </button>
+  </div>
+
+  
+
