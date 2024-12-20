@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { WeatherService } from 'src/app/services/weather.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { trigger, style, transition, animate } from '@angular/animations';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-weather',
+  standalone: true,
+  imports: [FormsModule, CommonModule, RouterModule],
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.scss'],
   animations: [
