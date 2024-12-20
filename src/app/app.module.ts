@@ -12,13 +12,17 @@ import { LoginComponent } from './pages/login/login.component';
 import { WeatherComponent } from './pages/weather/weather.component';
 import { ForecastComponent } from './pages/forecast/forecast.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     WeatherComponent,
-    ForecastComponent
+    ForecastComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     ReactiveFormsModule,

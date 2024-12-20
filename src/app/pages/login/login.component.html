@@ -1,33 +1,50 @@
 <div class="container mt-5">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <h2 class="text-center mb-4">Login</h2>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input
-          type="email"
-          id="email"
-          class="form-control"
-          formControlName="email"
-          placeholder="Enter your email"
-        />
-        <small *ngIf="email?.invalid && email?.touched" class="text-danger">
-          Please enter a valid email.
-        </small>
-      </div>
-      <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input
-          type="password"
-          id="password"
-          class="form-control"
-          formControlName="password"
-          placeholder="Enter your password"
-        />
-        <small *ngIf="password?.invalid && password?.touched" class="text-danger">
-          Password must be at least 6 characters long.
-        </small>
-      </div>
-      <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Login</button>
-    </form>    
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h2 class="text-center mb-4">Login</h2>
+
+    <!-- Email Field -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        formControlName="email"
+        placeholder="Enter your email"
+      />
+      <small *ngIf="email?.invalid && email?.touched" class="text-danger">
+        <span *ngIf="email?.errors?.['required']">Email is required.</span>
+        <span *ngIf="email?.errors?.['email']">Please enter a valid email.</span>
+      </small>
+    </div>
+
+    <!-- Password Field -->
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        formControlName="password"
+        placeholder="Enter your password"
+      />
+      <small *ngIf="password?.invalid && password?.touched" class="text-danger">
+        <span *ngIf="password?.errors?.['required']">Password is required.</span>
+        <span *ngIf="password?.errors?.['minlength']">
+          Password must be at least {{ password?.errors?.['minlength']?.requiredLength }} characters long.
+        </span>
+        <span *ngIf="password?.errors?.['weakPassword']">
+          Password must include:
+          <ul class="m-0">
+            <li>At least one uppercase letter</li>
+            <li>At least one number</li>
+            <li>At least one special character (!#$%^&*)</li>
+          </ul>
+        </span>
+      </small>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Login</button>
+  </form>
 </div>
-  
