@@ -25,7 +25,7 @@ Project has been upgraded from angular 14 to angular 17.
 14-Day Forecast API is not available in the free plan, so used
 5-Days 3-Hour API instead.
 
-
+## Demo
 [![Watch the video](thumbnail.png)](weatherApp_demo.mp4)
 
 
