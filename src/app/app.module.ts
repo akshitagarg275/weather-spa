@@ -19,6 +19,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ForecastComponent,
     HeaderComponent,
     FooterComponent
+   
   ],
   imports: [
     ReactiveFormsModule,
@@ -26,7 +27,7 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpClientModule,
     BrowserAnimationsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

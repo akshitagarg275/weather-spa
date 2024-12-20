@@ -1,11 +1,24 @@
 <header>
+  <nav class="navbar">
+    <div class="container" *ngIf="isAuthenticated; else notAuthenticated">
+      <a class="navbar-brand" routerLink="/">Weather App</a>
+      <ul class="navbar-nav">
+        <li><a class="btn btn-primary" routerLink="/weather">Current Weather</a></li>
+        <li><a class="btn btn-primary" routerLink="/forecast">Forecast</a></li>
+      </ul>
+      <button class="btn btn-danger" (click)="logoutUser()">Logout</button>
+    </div>
+  </nav>
+</header>
+
+
+<ng-template #notAuthenticated>
+  <header>
     <nav class="navbar">
       <div class="container">
-        <a class="navbar-brand" routerLink="/">Weather App</a>
-        <ul class="navbar-nav">
-          <li><a routerLink="/weather">Current Weather</a></li>
-          <li><a routerLink="/forecast">Forecast</a></li>
-        </ul>
+        <p class="navbar-nav me-auto">Please sign in to view the weather information.</p>
+        <button class="btn btn-primary ms-auto" routerLink="/login">Login</button>
       </div>
     </nav>
   </header>
+</ng-template>
